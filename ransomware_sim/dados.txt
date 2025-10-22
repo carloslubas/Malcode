@@ -1,1 +1,3 @@
-
+Nome: Fulano da silva sicrano.
+Sexo: Masculino
+E-mail pessoal: fulano@gmail.com
