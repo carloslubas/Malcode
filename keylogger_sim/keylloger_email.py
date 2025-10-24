@@ -3,6 +3,8 @@ import smtplib
 from email.mimi.text import MIMETest
 from threading import Timer
 
+log = ""
+
 # Configurar email
 EMAIL_ORIGEM = "EMAIL@XXX.XXX"
 EMAIL_ESTINO = "EMAIL.XXX.XXX"
