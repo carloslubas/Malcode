@@ -1,4 +1,4 @@
-from cryptography.fernet import Fernet # Corrigido: 'cryptograpy' para 'cryptography'
+from cryptography.fernet import Fernet
 import os
 
 # --- DEFINIÇÃO DE CAMINHOS CHAVE (IDÊNTICO AO RANSOMWARE PARA CONSISTÊNCIA) ---
@@ -8,8 +8,11 @@ DIRETORIO_RAIZ = os.path.dirname(os.path.abspath(__file__))
 # Define o caminho para a pasta alvo dos arquivos de teste (test_files/)
 DIRETORIO_ALVO = os.path.join(DIRETORIO_RAIZ, 'test_files')
 
-# Define o caminho para o arquivo da chave
+# Define o caminho para o arquivo da chave (continua na raiz do script)
 CHAVE_PATH = os.path.join(DIRETORIO_RAIZ, "chave.key")
+
+# ⚠️ NOVO CAMINHO: Define o caminho para a mensagem de resgate dentro de DIRETORIO_ALVO
+RESGATE_PATH = os.path.join(DIRETORIO_ALVO, "LEIA ISSO.txt")
 # ------------------------------------
 
 # 1. Carregar chave salva
@@ -35,10 +38,7 @@ def descriptografar_arquivo(caminho_arquivo, chave):
         file.write(dados_descriptografados)
         
     # 2.3. REVERTER A EXTENSÃO (.malcode -> .txt)
-    # Remove os últimos 8 caracteres (".malcode") para obter o nome original
     caminho_original = caminho_arquivo.removesuffix(".malcode")
-    
-    # Renomeia o arquivo
     os.rename(caminho_arquivo, caminho_original)
     print(f"-> RESTAURADO: {caminho_original}")
 
@@ -46,10 +46,10 @@ def descriptografar_arquivo(caminho_arquivo, chave):
 # 3. Encontrar arquivos PARA descriptografar
 def encontrar_arquivos(diretorio):
     lista = []
-    # Correção de sintaxe: lista = []
+    # Correção de sintaxe: lista = [] (já está na forma correta com o loop)
     for raiz, _, arquivos in os.walk(diretorio):
         for nome in arquivos:
-            # 💡 PROCURA SOMENTE ARQUIVOS COM A EXTENSÃO DO RANSOMWARE
+            # Procura SOMENTE arquivos com a extensão do ransomware
             if nome.endswith(".malcode"):
                 caminho_completo = os.path.join(raiz, nome)
                 lista.append(caminho_completo)
@@ -74,12 +74,22 @@ def main():
         except Exception as e:
             print(f"FALHA ao descriptografar {arquivo}: {e}")
             
-    # Remove a mensagem de resgate e a chave após a restauração (Limpeza do ambiente)
+    # --- LIMPEZA (REMOÇÃO DA CHAVE E DA NOTA DE RESGATE) ---
+    print("\nIniciando limpeza do ambiente...")
+    
+    # 1. Tenta remover a chave (na raiz do script)
     try:
         os.remove(CHAVE_PATH)
-        os.remove(os.path.join(DIRETORIO_RAIZ, "LEIA ISSO.txt"))
+        print(f"Removido: {os.path.basename(CHAVE_PATH)}")
     except OSError:
-        pass # Ignora se os arquivos já foram removidos
+        print(f"Aviso: {os.path.basename(CHAVE_PATH)} não encontrado para remoção.")
+
+    # 2. ⚠️ Tenta remover a mensagem de resgate (dentro de test_files)
+    try:
+        os.remove(RESGATE_PATH)
+        print(f"Removido: {os.path.basename(RESGATE_PATH)} (do diretório alvo)")
+    except OSError:
+        print(f"Aviso: {os.path.basename(RESGATE_PATH)} não encontrado para remoção.")
         
     print("\n✅ ARQUIVOS RESTAURADOS COM SUCESSO. Ambiente limpo.")
 
