@@ -17,6 +17,21 @@ O comando é o mesmo para qualquer terminal, desde que o pip esteja configurado 
 ```bash
 pip install pynput secure-smtplib
 ```
-No gi abaixo, é demostrada a execução do keylogger:
+🏃 Passo a Passo de Execução do Keylogger Simulado
+Para demonstrar o funcionamento do Keylogger em tempo real e confirmar a captura de teclas, siga os passos abaixo em seu ambiente isolado (Sandbox, VM, etc), no exemplo, o keylogger foi executada numa vm kali linux com kde:
+
+1. Preparação
+
+Baixe o repositório Malcode para seu ambiente isolado.
+Abra três terminais ou divida uma única janela do console em três painéis verticais, conforme a animação abaixo:
+Navegue para dentro da pasta Malcode/keylogger_sim nos três terminais.
+
+Terminal 1 (Esquerda): Para executar o Keylogger.
+
+Terminal 2 (Direita, Superior): Para monitorar o arquivo log.txt em tempo real.
+
+Terminal 3 (Direita, Inferior): Para simular a digitação do usuário.
+
+No gif abaixo, é demostrada a execução do keylogger:
 
 ![Demonstração:](../images/AnimaçãoExecuçãokeylogger.gif)
