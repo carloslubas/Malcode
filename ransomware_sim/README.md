@@ -1,6 +1,6 @@
 ## 🛠️ Requisitos e Instalação
 
-Este módulo requer a biblioteca **`cryptography`** para realizar as operações de criptografia e descriptografia.
+Este módulo requer a biblioteca **`cryptography`** para realizar as operações de criptografia e descriptografia e foi usado um ambiente isolado (vm kali linux com kde) para demostração.
 
 ### 1. Instalação da Biblioteca `cryptography`
 Utilize o gerenciador de pacotes `pip` para instalar a dependência.
