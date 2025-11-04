@@ -61,6 +61,7 @@ cat test_files/dados.txt
 Resultado Esperado: O dados.txt está novamente legível. A mensagem de resgate e a chave de criptografia foram removidas.
 
 Demonstração Visual
+
 A imagem a seguir, ilustra o processo completo de ataque e mitigação:
 
 ![Demonstração:](../images/ComprovaçãoRansoware.png)
