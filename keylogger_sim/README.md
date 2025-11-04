@@ -17,3 +17,6 @@ O comando é o mesmo para qualquer terminal, desde que o pip esteja configurado 
 ```bash
 pip install pynput secure-smtplib
 ```
+No gi abaixo, é demostrada a execução do keylogger:
+
+![Demonstração:](../images/AnimaçãoExecuçãokeylogger.gif)
