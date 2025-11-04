@@ -35,8 +35,6 @@ Ao longo deste projeto, foram abordados os seguintes tópicos e habilidades:
 
 ## 🛠️ Requisitos e Setup
 
-Para replicar os testes em seu ambiente (Sandbox), você precisará de:
+Para replicar os testes em seu ambiente, você precisará de um ambiente isolado (sandbox), para este estudo, foi usada uma vm kali linux, com kde, rodando no virtualbox.
 
-1.  **Python 3.x**
-2.  **Ambiente Virtualizado:** VirtualBox ou VMware (para isolamento completo).
-3.  **Bibliotecas Python:** (A ser preenchido após o desenvolvimento dos scripts, ex: `cryptography`, `pynput`, etc.)
+Para executar as simulações, clone o repositório Malcode, para sua sandbox e siga o passo a passo para cada um das simulações: ransoware e keylogger.
